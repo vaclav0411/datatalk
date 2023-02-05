@@ -1,15 +1,21 @@
 ###
 ### A complete description of a Prefect Deployment for flow 'etl-web-to-gcs'
 ###
-name: ETL
+name: github example
 description: The main ETL function
-version: 17000bdf5dff928df9916400b3bb62ae
+version: f30a7826870fb432bb50833f51ebbf9b
 # The work queue that will handle this deployment's runs
-work_queue_name: main
+work_queue_name: default
 tags: []
 parameters: {}
 schedule: null
 infra_overrides: {}
+
+###
+### DO NOT EDIT BELOW THIS LINE
+###
+flow_name: etl-web-to-gcs
+manifest_path: null
 infrastructure:
   type: process
   env: {}
@@ -18,17 +24,22 @@ infrastructure:
   command: null
   stream_output: true
   working_dir: null
+  _block_document_id: 36ce7a74-7187-48f2-8e34-86c888eee57f
+  _block_document_name: anonymous-2e0689c4-0610-45c8-b236-14a24421993f
+  _is_anonymous: true
   block_type_slug: process
   _block_type_slug: process
-
-###
-### DO NOT EDIT BELOW THIS LINE
-###
-flow_name: etl-web-to-gcs
-manifest_path: null
-storage: null
-path: D:\Dev\datatalk\week_2
-entrypoint: etl_web_to_gcs copy.py:etl_web_to_gcs
+storage:
+  repository: https://github.com/vaclav0411/datatalk.git
+  reference: prefect
+  access_token: '**********'
+  _block_document_id: c9104084-2041-4949-960a-a3b2b2f43a06
+  _block_document_name: zoom
+  _is_anonymous: false
+  block_type_slug: github
+  _block_type_slug: github
+path: week_2/
+entrypoint: etl_web_to_gcs 2.py:etl_web_to_gcs
 parameter_openapi_schema:
   title: Parameters
   type: object
